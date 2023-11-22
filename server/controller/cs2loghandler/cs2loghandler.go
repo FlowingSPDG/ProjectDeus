@@ -8,7 +8,7 @@ import (
 )
 
 type LogController interface {
-	Handle(ip string, id string, msg cs2log.Message)
+	Handle(ip string, id string, msg cs2log.Message) error
 }
 
 type logController struct {
@@ -24,8 +24,6 @@ func NewLogController(
 }
 
 // Handle implements logController.
-func (lh *logController) Handle(ip string, id string, msg cs2log.Message) {
-	if err := lh.gameServerUsecase.VerifyGameServer(entity.GameServerID(id), ip); err != nil {
-		// TODO: エラーハンドリング
-	}
+func (lh *logController) Handle(ip string, id string, msg cs2log.Message) error {
+	return lh.gameServerUsecase.VerifyGameServer(entity.GameServerID(id), ip)
 }

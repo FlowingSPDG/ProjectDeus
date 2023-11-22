@@ -9,6 +9,7 @@ import (
 type GameServerUsecase interface {
 	// RegisterGameServer registers a temporary game server in the database.
 	// 返り値: server.cfg に追記する文字列
+	// TODO: JSON化する
 	RegisterGameServer(userID entity.UserID, name string, public bool, ip string, rcon string) (string, error)
 	// VerifyGameServer verifies a game server in the database. This should be called when the API server receives a log from the game server.
 	VerifyGameServer(gameServerID entity.GameServerID, ip string) error

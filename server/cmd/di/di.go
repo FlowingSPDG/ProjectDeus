@@ -8,16 +8,23 @@ import (
 	"github.com/FlowingSPDG/ProjectDeus/server/usecase"
 )
 
-func InitializeLogController() cs2loghandler.LogController {
+// localのインメモリDBが別インスタンスで生成されるので、データを参照できない場合がある
+// テスト用途なので、いったん変数にキャプチャする
+
+// TODO: 消す
+// はやめに実際の外部に依存したDBを使うようにしたい
+var uc usecase.GameServerUsecase
+
+func init() {
 	db := local.NewInmemoryGameServerRepository()
 	cfg := servercfg.NewServerCfg("http://localhost:3090/servers/%s/log")
-	uc := usecase.NewGameServerUsecase(db, cfg)
+	uc = usecase.NewGameServerUsecase(db, cfg)
+}
+
+func InitializeLogController() cs2loghandler.LogController {
 	return cs2loghandler.NewLogController(uc)
 }
 
 func InitializeRegisterServerController() gin.RegisterServerController {
-	db := local.NewInmemoryGameServerRepository()
-	cfg := servercfg.NewServerCfg("http://localhost:3090/servers/%s/log")
-	uc := usecase.NewGameServerUsecase(db, cfg)
 	return gin.NewRegisterServerController(uc)
 }

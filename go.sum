@@ -2,6 +2,8 @@ github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122174821-ff6e27033cba h1:FoSyvm
 github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122174821-ff6e27033cba/go.mod h1:fu+T94n5gpkJ4a5/Tnv94xcbv4c9zWkNNKRWE0wMIkM=
 github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122210001-fdf6dee548c9 h1:iLvjLhDZjD7XeYcVcmqhH0joj9fRZ1npcbpE0fHHrDA=
 github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122210001-fdf6dee548c9/go.mod h1:fu+T94n5gpkJ4a5/Tnv94xcbv4c9zWkNNKRWE0wMIkM=
+github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122213402-39d53562f9df h1:FZltLVX0mlB9shKsR7wzujvkijAd4RJZkHMQ6he/Ee8=
+github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122213402-39d53562f9df/go.mod h1:fu+T94n5gpkJ4a5/Tnv94xcbv4c9zWkNNKRWE0wMIkM=
 github.com/bytedance/sonic v1.5.0/go.mod h1:ED5hyg4y6t3/9Ku1R6dU/4KyJ48DZ4jPhfY1O2AihPM=
 github.com/bytedance/sonic v1.9.1 h1:6iJ6NqdoxCDr6mbY8h18oSO+cShGSMRGCEo7F2h0x8s=
 github.com/bytedance/sonic v1.9.1/go.mod h1:i736AoUSYt75HyZLoJW9ERYxcy6eaN6h4BZXU064P/U=

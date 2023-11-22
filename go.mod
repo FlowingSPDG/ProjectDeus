@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122210001-fdf6dee548c9 // indirect
+	github.com/FlowingSPDG/cs2-log-http v0.0.0-20231122213402-39d53562f9df // indirect
 	github.com/bytedance/sonic v1.10.2 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect

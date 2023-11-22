@@ -13,6 +13,7 @@ func main() {
 	r := gin.Default()
 	logController := di.InitializeLogController()
 	logHandler := cs2loghttp.NewLogHandler(logController.Handle)
+	r.POST("/servers", di.InitializeRegisterServerController().Handle)
 	r.POST("/servers/:id/log", logHandler.Handle())
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello!"})
