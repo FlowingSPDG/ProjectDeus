@@ -3,12 +3,14 @@ package entity
 import "time"
 
 type UserID string
+type UserDiscordID string
+type MatchID string
 type PlayerID string
 type GameServerID string
 
 type GameServer struct {
 	ID           GameServerID
-	Owner        UserID
+	Owner        UserDiscordID
 	Name         string
 	Public       bool
 	IP           string
@@ -30,12 +32,23 @@ const (
 )
 
 type Match struct {
-	ID        string
-	Owner     UserID
-	Server    GameServerID
-	StartedAt *time.Time
-	EndedAt   *time.Time
-	IsPug     bool
-	Players   []PlayerID
-	State     MatchState
+	ID         MatchID
+	Owner      UserDiscordID
+	Server     GameServerID
+	StartedAt  *time.Time
+	EndedAt    *time.Time
+	IsPug      bool
+	Players    []PlayerID
+	State      MatchState
+	Team1Score int
+	Team2Score int
+	Map        string
+	Winner     string
+}
+
+type User struct {
+	// ID        UserID // should not be used since ProjectDeus is using Discord as the main auth provider for now
+	DiscordID UserDiscordID
+	// SteamID  string // SteamID64, should be used for game stats and in-game admin calls?
+	IsAdmin bool
 }

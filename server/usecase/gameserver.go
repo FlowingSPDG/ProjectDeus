@@ -10,7 +10,7 @@ type GameServerUsecase interface {
 	// RegisterGameServer registers a temporary game server in the database.
 	// 返り値: server.cfg に追記する文字列
 	// TODO: JSON化する
-	RegisterGameServer(userID entity.UserID, name string, public bool, ip string, rcon string) (string, error)
+	RegisterGameServer(userDiscordID entity.UserDiscordID, name string, public bool, ip string, rcon string) (string, error)
 	// VerifyGameServer verifies a game server in the database. This should be called when the API server receives a log from the game server.
 	VerifyGameServer(gameServerID entity.GameServerID, ip string) error
 }
@@ -31,8 +31,8 @@ func NewGameServerUsecase(
 }
 
 // RegisterGameServer implements GameServerUsecase.
-func (uc *gameServerUsecase) RegisterGameServer(userID entity.UserID, name string, public bool, ip string, rcon string) (string, error) {
-	serverID, err := uc.gameServerRepository.RegisterGameServer(userID, name, public, ip, rcon)
+func (uc *gameServerUsecase) RegisterGameServer(userDiscordID entity.UserDiscordID, name string, public bool, ip string, rcon string) (string, error) {
+	serverID, err := uc.gameServerRepository.RegisterGameServer(userDiscordID, name, public, ip, rcon)
 	if err != nil {
 		return "", err
 	}
