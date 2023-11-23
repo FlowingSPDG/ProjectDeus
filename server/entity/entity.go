@@ -17,6 +17,18 @@ type GameServer struct {
 	RconPassword string
 }
 
+type MatchState int
+
+const (
+	MatchStateUnknown   MatchState = iota // Unknown
+	MatchStateStandby                     // Match created and loaded to game server
+	MatchStateWarmup                      // Match is in warmup, players can join
+	MatchStateLive                        // Match is live
+	MatchStateEnded                       // Match has ended
+	MatchStateCancelled                   // Match has been cancelled
+	MatchStateError                       // Match has errored, should be investigated by admin
+)
+
 type Match struct {
 	ID        string
 	Owner     UserID
@@ -25,4 +37,5 @@ type Match struct {
 	EndedAt   *time.Time
 	IsPug     bool
 	Players   []PlayerID
+	State     MatchState
 }
